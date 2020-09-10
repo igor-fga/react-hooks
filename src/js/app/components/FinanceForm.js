@@ -4,6 +4,7 @@ import { textoParaData } from '../helpers/DateHelper'
 
 export default () => {
     const item = useFormInput("")
+    const categoria = useFormInput("")
     const data = useFormInput("")
     const quantidade = useFormInput("")
     const valor = useFormInput("")
@@ -14,16 +15,22 @@ export default () => {
         event.preventDefault()
         dispatch({
             type: "ADD_FINANCE",
-            payload: { item: item.value, data: textoParaData(data.value), quantidade: quantidade.value, valor: valor.value }
+            payload: { item: item.value, categoria: categoria.value, data: textoParaData(data.value), quantidade: quantidade.value, valor: valor.value }
         })
     }
 
     return (
         <div id="finance-form">
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label htmlFor="item">Item</label>
-                    <input {...item} type="text" name="item" className="form-control" placeholder="Item" required autoFocus />
+                <div className="form-row">
+                    <div className="form-group col-6">
+                        <label htmlFor="item">Item</label>
+                        <input {...item} type="text" name="item" className="form-control" placeholder="Item" required autoFocus />
+                    </div>
+                    <div className="form-group col-6">
+                        <label htmlFor="categoria">Categoria</label>
+                        <input {...categoria} type="text" name="categoria" className="form-control" placeholder="Categoria" required autoFocus />
+                    </div>
                 </div>
                 <div className="form-group">
                     <label htmlFor="data">Data</label>

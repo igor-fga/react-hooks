@@ -8,6 +8,7 @@ export default () => {
         (finance, index) =>
             <tr key={index}>
                 <td>{finance.item}</td>
+                <td>{finance.categoria}</td>
                 <td>{dataParaTexto(finance.data)}</td>
                 <td>{finance.quantidade}</td>
                 <td>{finance.valor}</td>
@@ -21,6 +22,7 @@ export default () => {
                 <thead>
                     <tr>
                         <th>Item</th>
+                        <th>Categoria</th>
                         <th>Data</th>
                         <th>#</th>
                         <th>$</th>
